@@ -35,12 +35,12 @@ function App() {
     setLoading(true);
     try {
       const ingredientsString = ingredients.join(', ');
-      const backend_url = "http://localhost:3000/generate"; 
+      const backend_url = "https://mzman123-chef-gpt.hf.space/generate"; 
       // setSteps(['jam','egg']);
       const response = await axios.post(backend_url, { ingredients: ingredientsString });
       console.log(response);
       // setSteps(response.data);
-      setSteps(response.data);
+      setSteps(response.data.recipe);
       // setSteps(['season chops with salt and pepper', 'heat oil in large saute pan over medium-high heat']);
       setLoading(false);
     } catch (error) {
